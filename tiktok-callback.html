@@ -2,23 +2,32 @@
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>URDIA-HIL — TikTok connection</title>
-<style>body{font-family:system-ui,sans-serif;max-width:680px;margin:3rem auto;padding:0 1rem;color:#1a1a2e}code{background:#f0f0f5;padding:.2rem .4rem;border-radius:4px;word-break:break-all;display:block}button{margin-top:1rem;padding:.6rem 1.2rem}</style>
+<style>
+body{font-family:system-ui,sans-serif;max-width:680px;margin:3rem auto;padding:0 1rem;color:#1a1a2e}
+code{background:#f0f0f5;padding:.2rem .4rem;border-radius:4px;word-break:break-all;display:block}
+.spin{display:inline-block;width:28px;height:28px;border:3px solid #ddd;border-top-color:#e6002b;border-radius:50%;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+</style>
 </head>
 <body>
 <h1>TikTok connection</h1>
-<div id="out"></div>
-<button onclick="navigator.clipboard.writeText(document.getElementById('code').value)">Copy code</button>
+<div id="out"><span class="spin"></span> <span>Forwarding authorization to URDIA (localhost)…</span></div>
 <script>
 const params = new URLSearchParams(window.location.search);
-const code = params.get("code") || "(no code found)";
-const state = params.get("state") || "";
 const err = params.get("error");
+const code = params.get("code");
 if (err) {
-  document.getElementById("out").innerHTML = "<p>Connection failed: <b>" + err + "</b>. You can close this page and try again in URDIA.</p>";
+  document.getElementById("out").innerHTML = "<p>❌ Connection failed: <b>" + err + "</b>. Close this page and try again in URDIA.</p>";
+} else if (code) {
+  // auto-forward to the local HIL API (desktop-first OAuth pattern)
+  window.location.replace("http://localhost:8000/api/v1/social/tiktok/callback?code=" + encodeURIComponent(code));
+  setTimeout(function () {
+    document.getElementById("out").innerHTML =
+      "<p>⏳ Is the URDIA API running? Start it with:</p><code>uvicorn apps.api.main:app --port 8000</code>" +
+      "<p>Or paste the code manually:</p><code id='code'>" + code + "</code>";
+  }, 4000);
 } else {
-  document.getElementById("out").innerHTML =
-    "<p>Almost done! Copy the code below and paste it into the URDIA dashboard to finish connecting your TikTok account.</p><code id='code'>" + code + "</code>" +
-    (state ? "<p>(state: " + state + ")</p>" : "");
+  document.getElementById("out").innerHTML = "<p>No authorization code found. Start the connection from the URDIA dashboard.</p>";
 }
 </script>
 </body>

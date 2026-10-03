@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>URDIA-HIL — TikTok connection</title>
+<style>body{font-family:system-ui,sans-serif;max-width:680px;margin:3rem auto;padding:0 1rem;color:#1a1a2e}code{background:#f0f0f5;padding:.2rem .4rem;border-radius:4px;word-break:break-all;display:block}button{margin-top:1rem;padding:.6rem 1.2rem}</style>
+</head>
+<body>
+<h1>TikTok connection</h1>
+<div id="out"></div>
+<button onclick="navigator.clipboard.writeText(document.getElementById('code').value)">Copy code</button>
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get("code") || "(no code found)";
+const state = params.get("state") || "";
+const err = params.get("error");
+if (err) {
+  document.getElementById("out").innerHTML = "<p>Connection failed: <b>" + err + "</b>. You can close this page and try again in URDIA.</p>";
+} else {
+  document.getElementById("out").innerHTML =
+    "<p>Almost done! Copy the code below and paste it into the URDIA dashboard to finish connecting your TikTok account.</p><code id='code'>" + code + "</code>" +
+    (state ? "<p>(state: " + state + ")</p>" : "");
+}
+</script>
+</body>
+</html>

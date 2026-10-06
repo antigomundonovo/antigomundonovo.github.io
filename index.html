@@ -3,21 +3,90 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="icon.png">
 <!-- TikTok domain verification: paste the generated meta tag below when TikTok provides it -->
 <!-- <meta name="tiktok-domain-verification" content="PLACEHOLDER"> -->
-<title>URDIA-HIL</title>
-<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem;color:#1a1a2e}a{color:#0a66c2}h1{font-size:1.6rem}</style>
+<title>URDIA-HIL — History Intelligence Layer</title>
+<meta name="description" content="URDIA-HIL is a local-first editorial intelligence workspace that helps a history creator research, verify, compose and publish content to their own social media accounts — every publication requires explicit human approval.">
+<style>
+  :root { --ink:#1a1a2e; --accent:#b45309; --muted:#57534e; --line:#e7e5e4; }
+  * { box-sizing: border-box; }
+  body { font-family: Georgia, 'Times New Roman', system-ui, serif; margin:0; color:var(--ink); background:#fafaf9; }
+  header { border-bottom:1px solid var(--line); background:#fff; }
+  .bar { max-width:900px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; gap:12px; }
+  .bar img { width:40px; height:40px; border-radius:8px; }
+  .bar h1 { font-size:1.15rem; margin:0; }
+  .bar span { color:var(--muted); font-size:.9rem; }
+  .hero { max-width:900px; margin:0 auto; padding:48px 20px 24px; }
+  .hero h2 { font-size:2rem; margin:0 0 12px; }
+  .hero p { font-size:1.05rem; line-height:1.6; color:var(--muted); max-width:640px; }
+  section { max-width:900px; margin:0 auto; padding:8px 20px 8px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; padding:20px; max-width:900px; margin:0 auto; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px; }
+  .card h3 { margin:0 0 8px; font-size:1rem; }
+  .card p { margin:0; color:var(--muted); font-size:.92rem; line-height:1.55; font-family:system-ui,sans-serif; }
+  .principle { background:#fff; border-left:4px solid var(--accent); padding:14px 18px; border-radius:0 8px 8px 0; font-family:system-ui,sans-serif; font-size:.95rem; }
+  footer { border-top:1px solid var(--line); margin-top:40px; background:#fff; }
+  footer div { max-width:900px; margin:0 auto; padding:18px 20px; font-family:system-ui,sans-serif; font-size:.9rem; color:var(--muted); }
+  a { color:var(--accent); }
+</style>
 </head>
 <body>
-<h1>URDIA-HIL</h1>
-<p>URDIA-HIL is a personal, local-first editorial intelligence tool that helps
-its operator research, verify, compose and publish historical content to their
-own social media accounts. Every publication requires an explicit human
-approval inside the application.</p>
-<ul>
-<li><a href="privacy.html">Privacy Policy</a></li>
-<li><a href="terms.html">Terms of Service</a></li>
-</ul>
-<p>Contact: antigomundonovo23@gmail.com</p>
+<header>
+  <div class="bar">
+    <img src="icon-header.png" alt="URDIA-HIL app icon">
+    <h1>URDIA-HIL</h1>
+    <span>· History Intelligence Layer</span>
+  </div>
+</header>
+
+<div class="hero">
+  <h2>History content with evidence behind every claim.</h2>
+  <p>URDIA-HIL is the editorial intelligence workspace of the Antigo Mundo Novo
+  history project. It helps its operator research the past, verify facts against
+  registered sources, compose social content and publish it to their own
+  accounts — with a human approving every single publication.</p>
+</div>
+
+<section class="cards">
+  <div class="card">
+    <h3>Research &amp; verification</h3>
+    <p>Historical claims are checked against registered sources with provenance.
+    A deterministic judge classifies what is supported — and what stays unknown.</p>
+  </div>
+  <div class="card">
+    <h3>Editorial opportunities</h3>
+    <p>The system surfaces timely story opportunities (like the real origin of
+    Rio's 1912 bondinho) with why-now context, always reviewed by a human.</p>
+  </div>
+  <div class="card">
+    <h3>Social publishing</h3>
+    <p>Approved content is published to the operator's own TikTok and Instagram
+    accounts through the official platform APIs, with full audit trails.</p>
+  </div>
+  <div class="card">
+    <h3>Audience intelligence</h3>
+    <p>Comments, fact challenges and audience demands are organized so the
+    creator can answer what the public actually asks for.</p>
+  </div>
+</section>
+
+<section>
+  <div class="principle">
+    <strong>Our rule:</strong> nothing is ever published automatically. Every
+    post is reviewed and approved by a human inside the application, and
+    uncertain facts are labelled as uncertain — never presented as settled history.
+  </div>
+</section>
+
+<footer>
+  <div>
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="terms.html">Terms of Service</a><br><br>
+    URDIA-HIL is a personal, local-first tool by the Antigo Mundo Novo project.
+    Contact: <a href="mailto:antigomundonovo23@gmail.com">antigomundonovo23@gmail.com</a>
+  </div>
+</footer>
 </body>
 </html>
